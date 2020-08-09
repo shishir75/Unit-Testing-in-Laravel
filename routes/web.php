@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return 'About';
 });
+
+Route::resource('beverage', 'BeverageController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
