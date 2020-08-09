@@ -2,17 +2,22 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use App\User;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+    use DatabaseMigrations;
     /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
+    * A basic test.
+    * @test
+    * @return void
+    */
+    public function user_has_age_attribute()
     {
-        $this->assertTrue(true);
+        $user = factory(User::class)->make();
+        
+        $this->assertNotNull($user->age);
     }
 }
