@@ -3,12 +3,12 @@
 namespace Tests\Unit;
 
 use App\User;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;  // it is very important
 
 class UserModelTest extends TestCase
 {
-    use DatabaseTransactions;
+    use DatabaseMigrations;
 
     /**
     * A basic test.
