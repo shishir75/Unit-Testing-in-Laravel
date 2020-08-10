@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Beverage;
+use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -49,5 +50,26 @@ class BeverageTest extends TestCase
         $response->assertSee($this->beverage->name);
 
         $response->assertStatus(200);
+    }
+
+    /**
+    * A basic test.
+    * @test
+    * @return void
+    */
+    public function a_logged_in_user_can_buy_beverage()
+    {
+        $this->authenticate();
+
+        $data = [
+            'beverage_id' => $this->beverage->id,
+            'price' => 200
+        ];
+
+        $response = $this->post('/beverage/buy', $data);
+        
+        $this->assertDatabaseHas('purchases',$data);
+
+        $response->assertStatus(201);
     }
 }

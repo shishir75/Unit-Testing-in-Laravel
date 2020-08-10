@@ -21,7 +21,10 @@ Route::get('/about', function () {
     return 'About';
 });
 
-Route::resource('beverage', 'BeverageController');
+Route:: resource('beverage', 'BeverageController');
+Route::post('beverage/buy', 'PurchaseController@buy');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
