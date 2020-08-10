@@ -37,7 +37,7 @@ class BeverageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -48,7 +48,7 @@ class BeverageController extends Controller
      */
     public function show(Beverage $beverage)
     {
-        //
+        return view('Beverage.show', compact('beverage'));
     }
 
     /**
